@@ -17,7 +17,12 @@ source:
 build:
   number: 1
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    env:
+      WARNINGS: "ignore::kedro.KedroPythonVersionWarning"
+      PYTHONWARNINGS: "ignore::UserWarning"
+    content:
+      - "${{ PYTHON }} -m pip install -vv --use-pep517 --no-deps --no-build-isolation ."
 
 requirements:
   host:
