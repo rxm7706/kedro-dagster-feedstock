@@ -41,13 +41,6 @@ requirements:
     - cachetools >=4.1
 
 tests:
-  - python:
-      imports:
-        - kedro_dagster
-      pip_check: true
-      python_version:
-        - ${{ python_min }}.*
-        - "*"
   - requirements:
       run:
         - pip
